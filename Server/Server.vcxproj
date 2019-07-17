@@ -86,6 +86,9 @@
     <ClInclude Include="ChatServer.h" />
     <ClInclude Include="ClusterService.h" />
     <ClInclude Include="CommonServiceBase.h" />
+    <ClInclude Include="FriendModelBase.h" />
+    <ClInclude Include="GroupDO.h" />
+    <ClInclude Include="GroupModelBase.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="MySQL.h" />
     <ClInclude Include="public.h" />

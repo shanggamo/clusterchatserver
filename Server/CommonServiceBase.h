@@ -25,23 +25,27 @@ public:
 
 	// login service
 	virtual void login(const muduo::net::TcpConnectionPtr &con,
-		json &json, muduo::Timestamp time) = 0;
+		json &js, muduo::Timestamp time) = 0;
 
 	// register service
 	virtual void reg(const muduo::net::TcpConnectionPtr &con,
-		json &json, muduo::Timestamp time) = 0;
+		json &js, muduo::Timestamp time) = 0;
 
 	// add friend service
 	virtual void addFriend(const muduo::net::TcpConnectionPtr &con,
-		json &json, muduo::Timestamp time) = 0;
+		json &js, muduo::Timestamp time) = 0;
+
+	// add group service
+	virtual void addGroup(const muduo::net::TcpConnectionPtr &con,
+		json &js, muduo::Timestamp time) = 0;
 
 	// one to one chat service
 	virtual void oneChat(const muduo::net::TcpConnectionPtr &con,
-		json &json, muduo::Timestamp time) = 0;
+		json &js, muduo::Timestamp time) = 0;
 
-	// broadcast chat service
-	virtual void broadChat(const muduo::net::TcpConnectionPtr &con,
-		json &json, muduo::Timestamp time) = 0;
+	// group chat service
+	virtual void groupChat(const muduo::net::TcpConnectionPtr &con,
+		json &js, muduo::Timestamp time) = 0;
 
 	using Handler = std::function<void(const muduo::net::TcpConnectionPtr&, json&, muduo::Timestamp)>;
 	std::unordered_map<int, Handler> handler()const { return _handlerMap; }

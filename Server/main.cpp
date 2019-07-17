@@ -14,15 +14,6 @@ int main()
 	ChatServer server(&loop, listenAddr);
 	server.start();
 	loop.loop();
-
-	/*UserDO user;
-	user.name = "zhang san";
-	user.password = "123456";
-	user.state = "offline";
-	UserModel *p = new UserModel();
-	p->add(user);
-
-	cout << "user.id:" << user.id << endl;
-	*/
+	
     return 0;
 }

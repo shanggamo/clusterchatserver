@@ -35,5 +35,14 @@
     <ClInclude Include="ClusterService.h">
       <Filter>service</Filter>
     </ClInclude>
+    <ClInclude Include="FriendModelBase.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupDO.h">
+      <Filter>do</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupModelBase.h">
+      <Filter>model</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

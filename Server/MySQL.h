@@ -2,13 +2,14 @@
 
 #include <mysql.h>
 #include <string>
+#include <muduo/base/Logging.h>
 using namespace std;
 
 // 数据库配置信息
-string server = "127.0.0.1";
-string user = "root";
-string password = "123456";
-string dbname = "chat";
+static string server = "127.0.0.1";
+static string user = "root";
+static string password = "123456";
+static string dbname = "chat";
 
 // 数据库操作类
 class MySQL
@@ -41,8 +42,8 @@ public:
 	{
 		if (mysql_query(_conn, sql.c_str()))
 		{
-			cout << __FILE__ << ":" << __LINE__ << ":"
-				<< sql << "更新失败!" << endl;
+			LOG_INFO << __FILE__ << ":" << __LINE__ << ":"
+				<< sql << "更新失败!";
 			return false;
 		}
 		return true;
@@ -52,8 +53,8 @@ public:
 	{
 		if (mysql_query(_conn, sql.c_str()))
 		{
-			cout << __FILE__ << ":" << __LINE__ << ":"
-				<< sql << "查询失败!" << endl;
+			LOG_INFO << __FILE__ << ":" << __LINE__ << ":"
+				<< sql << "查询失败!";
 			return nullptr;
 		}
 		return mysql_use_result(_conn);

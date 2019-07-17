@@ -23,15 +23,7 @@ void ChatServer::onMessage(const muduo::net::TcpConnectionPtr &con,
 	muduo::net::Buffer *buf,
 	muduo::Timestamp time)
 {
-	// muduo使用示例代码
 	muduo::string msg(buf->retrieveAllAsString());
-	LOG_INFO << con->name() << " echo:" << msg.size() << "bytes, "
-		<< "data receive at time:" << time.toString();
-	con->send(msg);
-	LOG_INFO << "onMessage tid:" << pthread_self();
-
-	/*
-	添加代码，怎么在这里设计，ChatServer::onMessage接收到的数据，让具体的
-	Service来处理？
-	*/
+	json js = json::parse(msg.c_str());
+	App().handler()[js["msgid"].get<int>()](con, js, time);
 }
