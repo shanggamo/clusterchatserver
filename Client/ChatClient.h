@@ -4,6 +4,7 @@
 #include <muduo/net/EventLoop.h>
 #include <muduo/base/Logging.h>
 #include <boost/bind.hpp>
+#include <muduo/base/ThreadPool.h>
 /*
 客户端实现，基于C++ muduo网络库
 */
@@ -34,6 +35,9 @@ private:
 	void onMessage(const muduo::net::TcpConnectionPtr &con,
 		muduo::net::Buffer *buf,
 		muduo::Timestamp time);
+	// 客户端输入界面，在单独的线程中接收用户输入进行发送操作
+	void userClient(const muduo::net::TcpConnectionPtr &con);
 
 	muduo::net::TcpClient _client;
+	muduo::ThreadPool _pool;
 };
