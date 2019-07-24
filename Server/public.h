@@ -15,5 +15,7 @@ const int MSG_ONE_CHAT = 8; // one to one chat msg
 const int MSG_ONE_CHAT_ACK = 9; // one to one chat ack msg
 const int MSG_LOGINOUT = 10; // logout msg
 
+const int MSG_ACK = 13; // test
+
 const int ACK_SUCCESS = 100; // msg process ok
 const int ACK_ERROR = 101; // msg process err
